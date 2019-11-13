@@ -34,6 +34,8 @@ RECORDS_REST_ENDPOINTS = {
         record_serializers={
             'application/json': ('cc_vary_header.records.serializers'
                                  ':json_v1_response'),
+            'application/x-custom': ('cc_vary_header.records.serializers'
+                                     ':custom_v1_response'),
         },
         search_serializers={
             'application/json': ('cc_vary_header.records.serializers'
