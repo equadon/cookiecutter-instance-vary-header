@@ -13,4 +13,41 @@
     <h1 class="text-center">Welcome to CC Vary Header.</h1>
   </div>
 </div>
+
+<div>
+  <select id="content">
+    <option value="application/json">JSON</option>
+    <option value="application/x-custom">Custom</option>
+  </select>
+  <button onclick="submit()">submit</button>
+  <script type="text/javascript">
+    function submit() {
+      console.log(document.getElementById('content').value);
+      fetch('/api/records/1', {
+        method: 'get',
+        headers: {
+          'Accept': document.getElementById('content').value
+        },
+      })
+      .then(
+        function(response) {
+          console.log('resp', response);
+          if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+              response.status);
+            return;
+          }
+
+          // Examine the text in the response
+          response.json().then(function(data) {
+            console.log(data);
+          });
+        }
+      )
+      .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+      });
+    }
+  </script>
+</div>
 {%- endblock %}
