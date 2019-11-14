@@ -151,3 +151,5 @@ OAISERVER_ID_PREFIX = 'oai:cc-vary-header.com:'
 
 #: Switches off incept of redirects by Flask-DebugToolbar.
 DEBUG_TB_INTERCEPT_REDIRECTS = False
+
+# RATELIMIT_HEADERS_ENABLED = False
