@@ -15,15 +15,17 @@
 </div>
 
 <div>
+  <label>url:</label>
+  <input id="url" type="text" value="/api/records/1" />
   <select id="content">
-    <option value="application/json">JSON</option>
-    <option value="application/x-custom">Custom</option>
+    <option value="application/json">application/json</option>
+    <option value="application/x-custom">application/x-custom</option>
   </select>
   <button onclick="submit()">submit</button>
   <script type="text/javascript">
     function submit() {
       console.log(document.getElementById('content').value);
-      fetch('/api/records/1', {
+      fetch(document.getElementById('url').value, {
         method: 'get',
         headers: {
           'Accept': document.getElementById('content').value
